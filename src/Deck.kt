@@ -1,8 +1,18 @@
+import java.util.*
+
 class Deck {
 
-    val cards: Array<Card> = Array(52, {Card(it % 13, getSuit(it)) })
+    val cards = Array(52, {Card(it % 13, getSuit(it)) })
+    var cardsInDeck: MutableList<Card> = cards.toMutableList()
 
-    private fun getSuit(i: Int): String = when (i/13) {
+    fun drawCard(): Card = cardsInDeck.removeAt(0)
+
+    fun reset() {
+        cardsInDeck = cards.toMutableList()
+        Collections.shuffle(cardsInDeck)
+    }
+
+    private fun getSuit(i: Int) = when (i/13) {
             0 -> "Clubs"
             1 -> "Diamonds"
             2 -> "Hearts"
