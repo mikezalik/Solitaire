@@ -12,4 +12,16 @@ public class Card {
     public int getValue() {
         return value;
     }
+
+    public String getSuit() {
+        return suit;
+    }
+
+    public boolean isFaceUp() {
+        return faceUp;
+    }
+
+    public void setFaceUp(boolean faceUp) {
+        this.faceUp = faceUp;
+    }
 }
